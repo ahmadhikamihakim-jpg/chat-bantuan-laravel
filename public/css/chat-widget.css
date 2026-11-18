@@ -1,0 +1,67 @@
+/* Widget Chat Bantuan — gaya mengikuti contoh: header biru tua, menu pil, panel tim WhatsApp. */
+.cw-root { --cw: #2a27a8; --cw-dark: #1d1b6e; position: fixed; right: 20px; bottom: 20px; z-index: 9990; font-family: "Segoe UI", system-ui, -apple-system, Arial, sans-serif; }
+.cw-root * { box-sizing: border-box; }
+
+/* Tombol melayang */
+.cw-fab { display: flex; align-items: center; gap: 10px; border: 0; cursor: pointer; background: var(--cw); color: #fff; font-size: 15px; font-weight: 700; padding: 8px 18px 8px 8px; border-radius: 999px; box-shadow: 0 10px 26px rgba(20, 18, 90, .38); }
+.cw-fab:hover { background: var(--cw-dark); }
+.cw-fab-avatar { width: 38px; height: 38px; border-radius: 50%; background: #fff; color: var(--cw); display: flex; align-items: center; justify-content: center; font-size: 17px; font-weight: 800; overflow: hidden; flex: none; }
+.cw-fab-avatar img { width: 100%; height: 100%; object-fit: cover; }
+
+/* Panel chat */
+.cw-panel { position: absolute; right: 0; bottom: 68px; width: min(372px, calc(100vw - 32px)); height: min(560px, calc(100dvh - 120px)); background: #fff; border-radius: 16px; box-shadow: 0 22px 55px rgba(15, 14, 60, .35); display: none; flex-direction: column; overflow: hidden; }
+.cw-panel.open { display: flex; }
+.cw-head { background: var(--cw); color: #fff; display: flex; align-items: center; gap: 10px; padding: 12px 14px; flex: none; }
+.cw-avatar { width: 40px; height: 40px; border-radius: 50%; background: #fff; color: var(--cw); display: flex; align-items: center; justify-content: center; font-weight: 800; font-size: 17px; flex: none; }
+.cw-head-copy { display: flex; flex-direction: column; line-height: 1.2; margin-right: auto; }
+.cw-head-copy strong { font-size: 16px; }
+.cw-head-copy small { font-size: 12px; opacity: .85; }
+.cw-icon-btn { width: 34px; height: 34px; border: 0; border-radius: 9px; background: rgba(255,255,255,.14); color: #fff; cursor: pointer; display: flex; align-items: center; justify-content: center; flex: none; }
+.cw-icon-btn:hover { background: rgba(255,255,255,.28); }
+.cw-icon-btn svg { width: 18px; height: 18px; }
+
+/* Isi percakapan */
+.cw-body { flex: 1; overflow-y: auto; padding: 14px 12px; background: #fff; display: flex; flex-direction: column; gap: 9px; -webkit-overflow-scrolling: touch; overscroll-behavior: contain; }
+.cw-body > * { flex: none; }
+.cw-row { display: flex; gap: 8px; align-items: flex-end; }
+.cw-row.me { justify-content: flex-end; }
+.cw-mini-avatar { width: 26px; height: 26px; border-radius: 50%; background: var(--cw); color: #fff; font-size: 12px; font-weight: 800; display: flex; align-items: center; justify-content: center; flex: none; }
+.cw-bubble { max-width: 82%; padding: 9px 12px; border-radius: 14px; font-size: 14px; line-height: 1.5; white-space: pre-wrap; word-break: break-word; }
+.cw-typing { display: inline-flex; gap: 4px; align-items: center; min-width: 46px; }
+.cw-typing span { width: 6px; height: 6px; border-radius: 50%; background: #9a97c9; animation: cwBlink 1.2s infinite; }
+.cw-typing span:nth-child(2) { animation-delay: .2s; }
+.cw-typing span:nth-child(3) { animation-delay: .4s; }
+@keyframes cwBlink { 0%, 80%, 100% { opacity: .25; } 40% { opacity: 1; } }
+.cw-bubble.bot { background: #f1f1f6; color: #22223a; border-bottom-left-radius: 4px; }
+.cw-bubble.me { background: var(--cw); color: #fff; border-bottom-right-radius: 4px; }
+
+/* Menu cepat (tombol pil) */
+.cw-chips { display: flex; flex-wrap: wrap; gap: 8px; padding-left: 34px; }
+.cw-chip { border: 0; cursor: pointer; background: #5553c9; background: color-mix(in srgb, var(--cw) 82%, #fff); color: #fff; font-size: 13.5px; font-weight: 600; padding: 8px 14px; border-radius: 10px; }
+.cw-chip:hover { background: var(--cw-dark); }
+
+/* Panel daftar tim WhatsApp */
+.cw-agents { background: #fff; border: 1px solid #e6e6ef; border-radius: 12px; overflow-y: auto; overflow-x: hidden; max-height: 252px; margin-left: 34px; flex: none; -webkit-overflow-scrolling: touch; overscroll-behavior: contain; }
+.cw-agents-title { font-size: 13px; font-weight: 700; color: #44445e; padding: 10px 12px 4px; }
+.cw-agent { display: flex; align-items: center; gap: 10px; width: 100%; border: 0; border-bottom: 1px solid #f0f0f6; background: #fbfbfd; padding: 10px 12px; cursor: pointer; text-align: left; }
+.cw-agent:last-child { border-bottom: 0; }
+.cw-agent:hover { background: #eef7f0; }
+.cw-wa-ic { width: 36px; height: 36px; border-radius: 50%; background: #25d366; display: flex; align-items: center; justify-content: center; flex: none; }
+.cw-wa-ic svg { width: 20px; height: 20px; fill: #fff; }
+.cw-agent-copy { display: flex; flex-direction: column; margin-right: auto; line-height: 1.25; }
+.cw-agent-copy strong { font-size: 14px; color: #22223a; }
+.cw-agent-copy small { font-size: 12px; color: #8a8aa0; }
+.cw-wa-small { width: 18px; height: 18px; fill: #25d366; flex: none; }
+
+/* Bilah ketik */
+.cw-inputbar { display: flex; gap: 8px; align-items: center; padding: 10px 12px; border-top: 1px solid #ececf3; flex: none; background: #fff; }
+.cw-inputbar input { flex: 1; border: 2px solid #2b2b3d; border-radius: 999px; padding: 10px 16px; font-size: 14px; outline: none; min-width: 0; }
+.cw-inputbar input:focus { border-color: var(--cw); }
+.cw-send { width: 42px; height: 42px; border: 0; border-radius: 50%; background: var(--cw); color: #fff; cursor: pointer; display: flex; align-items: center; justify-content: center; flex: none; }
+.cw-send:hover { background: var(--cw-dark); }
+.cw-send svg { width: 19px; height: 19px; }
+
+@media (max-width: 480px) {
+  .cw-root { right: 12px; bottom: 12px; }
+  .cw-panel { bottom: 64px; height: calc(100dvh - 96px); }
+}
